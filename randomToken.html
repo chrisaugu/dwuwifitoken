@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WiFi Token</title>
+</head>
+<body>
+<script type="text/javascript">
+	function randomString1(length, chars) {
+	    var result = '';
+	    for (var i = length; i > 0; --i) {
+	    	result += chars[Math.floor(Math.random() * chars.length)]
+	    };
+	    return result;
+	};
+	// generate hundred random token
+	// 1402410240
+	for (var i=0;i < 14024;i++){
+	    var token = randomString1(6, '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+		document.body.append(token);
+		// ajaxRequest(token)
+	};
+
+	// if (window.find("44OSJX")) {
+	// 	console.log("match found");
+	// 	alert("match found");
+	// } else {
+	// 	window.location.reload();
+	// 	console.log("no match found");
+	// }
+
+	// 0|0|0|0|0|0
+	// 0|0|0|0|0|1
+	// 0|0|0|0|1|0
+	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var num = [0,1,2,3,4,5,6,7,8,9];
+	var arr = [0,0,0,0,0,0];
+	for (var i = 0; i < chars.length; i++) {
+		arr[0] = chars[i]
+		for (var j = 0; j < chars.length; j++) {
+			arr[1] = chars[j]
+			// for (var k = 0; k < chars.length; k++) {
+			//	arr[2] = chars[k];
+			//	for (var l = 0; l < chars.length; l++) {
+			//		arr[3] = chars[l]
+			// 		for (var m = 0; m < chars.length; m++) {
+			// 			arr[4] = chars[m]
+			// 			for (var n = 0; n < chars.length; n++) {
+			// 				arr[5] = chars[n]
+			//				console.log(arr[0]+arr[1]+arr[2]+arr[3]+arr[4]+arr[5])
+			//				await sendRequest(arr[0]+arr[1]+arr[2]+arr[3]+arr[4]+arr[5]);
+			// 			}
+			// 		}
+			//	}
+			// }
+		}
+	}
+
+	var cx = [
+	  ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+	  ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+	  ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+	  ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+	  ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+	  ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+	];
+
+	var c = [
+	  ['7','8','9','A','B','C','D'],
+	  ['0','1','2','3','4','5','6'],
+	  ['0','1','2','3','4','5','6'],
+	  ['0','1','2','3','4','5','6'],
+	  ['0','1','2','3','4','5','6'],
+	  ['0','1','2','3','4','5','6'],
+	];
+	
+	function permutate(abc, memo) {
+	    var options;
+	    memo = memo || abc.shift().slice(0);
+	
+	    if(abc.length) {
+	        options = abc.shift();
+
+	        return permutate(abc, memo.reduce(function(all, item){
+	            return all.concat(options.map(function(option){
+	                return option + item;
+	            }))
+	        }, []))        
+	    }
+	
+	    return memo;
+	};
+
+	// window.TOKENS = permutate(c);
+	// console.log(TOKENS);
+
+	// function request() {
+	// 	for (var i = 0; i < TOKENS.length; i++) {
+	// 		ajaxRequest(TOKENS[i])
+	// 	}
+	// }
+
+	async function ajaxRequest(code) {
+		return new Promise(function(resolve, reject) {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystagechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					resolve(true)
+					// console.log(xhr.responseText);
+				}
+			};
+			xhr.open("GET", "/data?code=" + code, true);
+			xhr.send();
+		})
+	}
+</script>
+</body>
+</html>
