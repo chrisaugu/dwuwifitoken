@@ -1,7 +1,7 @@
 {
-  "name": "dwuwifitokenmanager",
+  "name": "dwuwifitoken",
   "version": "1.0.0",
-  "description": "a node.js application for managing your DWU WiFi tokens",
+  "description": "a node.js application for generating your potential DWU-Hotspot Wi-Fi tokens",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrisaugu/dwuwifitokenmanger.git"
+    "url": "git+https://github.com/chrisaugu/dwuwifitoken.git"
   },
   "author": "Christian Augustyn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chrisaugu/dwuwifitokenmanger/issues"
+    "url": "https://github.com/chrisaugu/dwuwifitoken/issues"
   },
-  "homepage": "https://github.com/chrisaugu/dwuwifitokenmanger#readme"
+  "homepage": "https://github.com/chrisaugu/dwuwifitoken#readme"
 }
