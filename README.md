@@ -1,4 +1,4 @@
-# DWU WiFi Token Manager
+# DWU WiFi Token Manager/Generator
 #### Manages your wifi tokens.
 
 ## How to use it
